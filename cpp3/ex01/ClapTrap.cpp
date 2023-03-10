@@ -53,10 +53,15 @@ void ClapTrap::attack(const std::string &target)
     if(_EnergyPoints > 0 && _HitPoints > 0)
     {
         std::cout << _name << " attacks " << target << " causing: " << _AttackDamage << " points of damage" << std::endl;
+        _EnergyPoints--;
+        std::cout << _name << " Current Energy: " << _EnergyPoints << std::endl;
+        std::cout<< std::endl;
     }
-    _EnergyPoints--;
-    std::cout << _name << " Current Energy: " << _EnergyPoints << std::endl;
-    std::cout<< std::endl;
+    else
+    {
+        std::cout << _name << " has no more Energy go recharge" << std::endl;
+    }
+  
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
