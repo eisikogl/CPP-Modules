@@ -2,14 +2,13 @@
 
 //default constructor
 ClapTrap::ClapTrap()
-    : _name(""),_HitPoints(10),_EnergyPoints(10),_AttackDamage(0)
 {
     std::cout << _name << ": Has been created with the default Constructor" << std::endl;
 }
 
 //constructor
 ClapTrap::ClapTrap(std::string name)
-    : _name(name),_HitPoints(10),_EnergyPoints(10),_AttackDamage(0)
+    : _name(name)
 {
     std::cout << _name << ": Has been created with the Constructor" << std::endl;
 }

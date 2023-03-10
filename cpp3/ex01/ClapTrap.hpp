@@ -13,7 +13,8 @@ class ClapTrap
         int _EnergyPoints = 10;
         int _AttackDamage = 0;
     public:
-        ClapTrap(std::string);
+        ClapTrap(std::string,int hitpoints,int energy,int attack);
+        ClapTrap(std::string name);
         ClapTrap();
         ClapTrap(const ClapTrap &copy);
         ClapTrap &operator = (const ClapTrap &copy);
