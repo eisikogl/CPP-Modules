@@ -1,7 +1,21 @@
-all: phonebook
+NAME 		= phonebook
 
-phonebook: phonebook.cpp
-		g++ phonebook.cpp -o phonebook
+SRCS		= phonebook.cpp
 
+OBJS		= $(SRCS:.cpp=.o)
+
+CPP			= c++ -std=c++98
+CPPFLAGS	= -Wall -Werror -Wextra
+
+all:		$(OBJS)
+			$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+			
 clean:
-		rm -f phonebook
+			rm -f $(OBJS)
+
+fclean:		clean
+			rm -f $(NAME)
+
+re:			fclean all
+
+.PHONY:			all clean fclean re
