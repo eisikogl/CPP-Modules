@@ -7,10 +7,16 @@
 class Fixed
 {
 private:
-    /* data */
+    int _fixedPointNumber;
+    static const int _fractionalBits = 8;
 public:
-    Fixed();
+    Fixed(const int);
+    Fixed(const float);
     ~Fixed();
+    Fixed(const Fixed &copy);
+    Fixed &operator = (const Fixed &copy);
+    float toFloat( void ) const;
+    int toInt( void ) const;
 };
 
 
