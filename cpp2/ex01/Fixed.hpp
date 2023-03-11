@@ -17,6 +17,8 @@ public:
     Fixed &operator = (const Fixed &copy);
     float toFloat( void ) const;
     int toInt( void ) const;
+    int getRawBits() const;
+		void setRawBits(int const raw);
 };
 
 
