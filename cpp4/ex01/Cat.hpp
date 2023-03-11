@@ -2,11 +2,12 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
 private:
-    /* data */
+    Brain *brain;
 public:
     Cat();
     ~Cat();

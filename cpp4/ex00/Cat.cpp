@@ -13,6 +13,7 @@ Cat::~Cat()
 
 Cat::Cat(const Cat &copy)
 {
+    
     std::cout << "Copy_Constructor_Cat" << std::endl;
     type = copy.type;
 }
