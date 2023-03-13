@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-    if (argc < 4)
+    if (!(argc == 4))
     {
         std::cout << "Invalid argument count!" << std::endl;
         return 0;

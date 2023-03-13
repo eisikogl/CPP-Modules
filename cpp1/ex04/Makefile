@@ -13,7 +13,7 @@ all: $(OBJ)	testfile
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 testfile:
-	@echo "Volo pro veritas" > testfile
+	@echo "Im not a cat in a box im a cat in a hat" > testfile
 
 clean:
 	@find . -name "*.o" -delete
