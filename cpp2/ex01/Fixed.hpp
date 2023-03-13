@@ -10,6 +10,7 @@ private:
     int _fixedPointNumber;
     static const int _fractionalBits = 8;
 public:
+    Fixed();
     Fixed(const int);
     Fixed(const float);
     ~Fixed();
@@ -18,9 +19,9 @@ public:
     float toFloat( void ) const;
     int toInt( void ) const;
     int getRawBits() const;
-		void setRawBits(int const raw);
+	void setRawBits(int const raw);
 };
 
-
+std::ostream &operator << (std::ostream &ostr,  Fixed const &fixed);
 
 #endif

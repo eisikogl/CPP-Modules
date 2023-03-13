@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(const int) : _fixedPointNumber(8)
+Fixed::Fixed() : _fixedPointNumber(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
