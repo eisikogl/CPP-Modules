@@ -61,15 +61,15 @@ void Harl::complain(std::string level)
     case 0:
         std::cout << "[ " << levels[0] << " ]" << std::endl;
         this->debug();
-        break;
+        std::cout << std::endl;
     case 1:
         std::cout << "[ " << levels[1] << " ]" <<std::endl;
         this->info();
-        break;
+        std::cout << std::endl;
     case 2:
         std::cout << "[ " << levels[2] << " ]" << std::endl;
         this->warning();
-        break;
+        std::cout << std::endl;
     case 3:
         std::cout << "[ " << levels[3] << " ]" << std::endl;
         this->error();
