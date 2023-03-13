@@ -28,18 +28,84 @@ class PhoneBook
 			currentIndex = 0;	
 		}
 		Contact &newContact = contacts[currentIndex];
-		std::cout << "First Name: ";
-		std::cin >> newContact.firstName;
-		std::cout << "Last Name: ";
-		std::cin >> newContact.lastName;
-		std::cout << "Nickname: ";
-		std::cin >> newContact.nickName;
-		std::cout << "Phone Number: ";
-		std::cin >> newContact.phoneNumber;
-		std::cout << "Darkest Secret: ";
-		std::cin >> newContact.darkestSecret;
-		currentIndex++;
-	}
+	   while (true)
+    {
+        std::cout << "First Name: ";
+        std::cin >> newContact.firstName;
+
+        if (!newContact.firstName.empty())
+        {
+            newContact.firstName = newContact.firstName;
+            break;
+        }
+        else
+        {
+            std::cout << "Error: First name cannot be empty. Please try again.\n";
+        }
+    }
+
+    while (true)
+    {
+        std::cout << "Last Name: ";
+        std::cin >> newContact.lastName;
+
+        if (!newContact.lastName.empty())
+        {
+            newContact.lastName = newContact.lastName;
+            break;
+        }
+        else
+        {
+            std::cout << "Error: Last name cannot be empty. Please try again.\n";
+        }
+    }
+
+    while (true)
+    {
+        std::cout << "Nickname: ";
+        std::cin >> newContact.nickName;
+
+        if (!newContact.nickName.empty())
+        {
+            newContact.nickName = newContact.nickName;
+            break;
+        }
+        else
+        {
+            std::cout << "Error: Nickname cannot be empty. Please try again.\n";
+        }
+    }
+    while (true)
+    {
+        std::cout << "Phone Number: ";
+        std::cin >> newContact.phoneNumber;
+        if (!newContact.phoneNumber.empty())
+        {
+            newContact.phoneNumber = newContact.phoneNumber;
+            break;
+        }
+        else
+        {
+            std::cout << "Error: Phone number cannot be empty. Please try again.\n";
+        }
+    }
+    while (true)
+    {
+        std::cout << "Darkest Secret: ";
+        std::cin >> newContact.darkestSecret;
+
+        if (!newContact.darkestSecret.empty())
+        {
+            newContact.darkestSecret = newContact.darkestSecret;
+            break;
+        }
+        else
+        {
+            std::cout << "Error: Darkest secret cannot be empty. Please try again.\n";
+        }
+    }
+    currentIndex++;
+}
 	void searchcontact()
 	{
 		std::cout << "Index | First Name | Last Name | Nickname" << std::endl;
