@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name)
-	: ClapTrap(name,100,50,20),_name(name)
+	: ClapTrap(name,100,50,20)
 {
      std::cout << "ScavTrap " << name << " created with health " << _HitPoints << ", energy " << _EnergyPoints << ", and attack damage " << _AttackDamage << ".\n";
 }
@@ -16,6 +16,9 @@ ScavTrap::ScavTrap()
 	:ClapTrap()
 {
 	std::cout << "ScavTrap created by default ScavTrap constructor" << std::endl; 
+	_HitPoints = 100;
+	_EnergyPoints = 50;
+	_AttackDamage = 20;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy)

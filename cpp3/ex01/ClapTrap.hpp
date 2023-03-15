@@ -7,11 +7,11 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string _name;
-        int _HitPoints = 10;
-        int _EnergyPoints = 10;
-        int _AttackDamage = 0;
+        int _HitPoints;
+        int _EnergyPoints;
+        int _AttackDamage;
     public:
         ClapTrap(std::string,int hitpoints,int energy,int attack);
         ClapTrap(std::string name);

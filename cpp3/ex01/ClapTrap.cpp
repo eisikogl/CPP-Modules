@@ -1,12 +1,5 @@
 #include "ClapTrap.hpp"
 
-//default constructor
-ClapTrap::ClapTrap()
-    : _name("")
-{
-    std::cout << _name << ": Has been created with the default Constructor" << std::endl;
-}
-
 //constructor
 ClapTrap::ClapTrap(std::string name,int hitpoints,int energy,int attack)
     : _name(name),_HitPoints(hitpoints),_EnergyPoints(energy), _AttackDamage(attack)
@@ -14,16 +7,31 @@ ClapTrap::ClapTrap(std::string name,int hitpoints,int energy,int attack)
     std::cout << _name << ": Has been created with the Claptrap Constructor" << std::endl;
 }
 
+//default constructor
+ClapTrap::ClapTrap()
+{
+    _name = "nameless";
+	_HitPoints = 10;
+	_EnergyPoints = 10;
+	_AttackDamage = 0;
+    std::cout << _name << ": Has been created with the default Constructor" << std::endl;
+}
+
+//constructor
 ClapTrap::ClapTrap(std::string name)
     : _name(name)
 {
-    std::cout << _name << ": Has been created with the Claptrap Constructor" << std::endl;
+    _HitPoints = 10;
+	_EnergyPoints = 10;
+	_AttackDamage = 0;
+    std::cout << _name << ": Has been created with the Constructor" << std::endl;
 }
 
 //copy constructor
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
     std::cout << "Copy constructor called" << std::endl;
+    _name = copy._name;
     _HitPoints = copy._HitPoints;
     _EnergyPoints = copy._EnergyPoints;
     _AttackDamage = copy._AttackDamage;
@@ -32,7 +40,8 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 //copy assignment
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy Assigment called" << std::endl;
+    _name = copy._name;
     _HitPoints = copy._HitPoints;
     _EnergyPoints = copy._EnergyPoints;
     _AttackDamage = copy._AttackDamage;
@@ -42,7 +51,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 //destructor
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap " << _name << " Destructor has been called" << std::endl;
+    std::cout << "Destructor has been called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -57,11 +66,10 @@ void ClapTrap::attack(const std::string &target)
         std::cout << _name << " Current Energy: " << _EnergyPoints << std::endl;
         std::cout<< std::endl;
     }
-    else
+     else
     {
         std::cout << _name << " has no more Energy go recharge" << std::endl;
     }
-  
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

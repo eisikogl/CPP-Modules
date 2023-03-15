@@ -3,13 +3,8 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
-private:
-    std::string _name;
-	int _HitPoints = 100;
-	int _EnergyPoints = 100;
-	int _AttackDamage = 30;
 public:
     FragTrap();
     ~FragTrap();
@@ -17,7 +12,7 @@ public:
     FragTrap(const FragTrap &copy);
     FragTrap &operator=(const FragTrap &copy);
 
-    void highFiveGuys(void);
+    void highFivesGuys(void);
 };
 
 #endif

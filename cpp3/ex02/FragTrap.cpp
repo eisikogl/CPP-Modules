@@ -3,10 +3,13 @@
 FragTrap::FragTrap() : ClapTrap()
 {
     std::cout << "FragTrap default constructor has been called" << std::endl;
+	_HitPoints = 100;
+	_EnergyPoints = 100;
+	_AttackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) 
-	: ClapTrap(name,100,100,30),_name(name)
+	: ClapTrap(name,100,100,30)
 {
 	std::cout << "FragTrap " << name << " created with health " << _HitPoints << ", energy " << _EnergyPoints << ", and attack damage " << _AttackDamage << ".\n";
 }
@@ -32,7 +35,7 @@ FragTrap::~FragTrap()
 	std::cout << _name << " has been destroyed by FragTrap Destructor" << std::endl;
 }
 
-void FragTrap::highFiveGuys()
+void FragTrap::highFivesGuys()
 {
 	std::cout << _name << " I request the highest of Fives " << std::endl;
 }

@@ -1,6 +1,4 @@
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -12,7 +10,7 @@ int main()
         clapTrap.beRepaired(3);
         clapTrap.beRepaired(5);
         clapTrap.takeDamage(10);
-    }
+    } 
 
     {
         std::cout << "----------------------" << std::endl;
@@ -36,5 +34,16 @@ int main()
         fragTrap.takeDamage(10);
     }
 
+    {
+        std::cout << "----------------------" << std::endl;
+        DiamondTrap diamondTrap("Diamond");
+        diamondTrap.attack("Diamond's Enemy");
+        diamondTrap.takeDamage(5);
+        diamondTrap.beRepaired(3);
+        diamondTrap.attack("Diamond's Enemy");
+        diamondTrap.whoAmI();
+        diamondTrap.beRepaired(5);
+        diamondTrap.takeDamage(10);
+    }
     return 0;
 }

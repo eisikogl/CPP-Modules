@@ -5,11 +5,6 @@
 
 class ScavTrap : public ClapTrap
 {
-private:
-	std::string _name;
-	int _HitPoints = 100;
-	int _EnergyPoints = 50;
-	int _AttackDamage = 20;
 public:
 	ScavTrap();
 	~ScavTrap();

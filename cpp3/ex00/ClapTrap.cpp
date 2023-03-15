@@ -3,6 +3,10 @@
 //default constructor
 ClapTrap::ClapTrap()
 {
+    _name = "nameless";
+	_HitPoints = 10;
+	_EnergyPoints = 10;
+	_AttackDamage = 0;
     std::cout << _name << ": Has been created with the default Constructor" << std::endl;
 }
 
@@ -10,6 +14,9 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(std::string name)
     : _name(name)
 {
+    _HitPoints = 10;
+	_EnergyPoints = 10;
+	_AttackDamage = 0;
     std::cout << _name << ": Has been created with the Constructor" << std::endl;
 }
 
@@ -17,6 +24,7 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
     std::cout << "Copy constructor called" << std::endl;
+    _name = copy._name;
     _HitPoints = copy._HitPoints;
     _EnergyPoints = copy._EnergyPoints;
     _AttackDamage = copy._AttackDamage;
@@ -25,7 +33,8 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 //copy assignment
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy Assigment called" << std::endl;
+    _name = copy._name;
     _HitPoints = copy._HitPoints;
     _EnergyPoints = copy._EnergyPoints;
     _AttackDamage = copy._AttackDamage;

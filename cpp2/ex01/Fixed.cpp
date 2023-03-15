@@ -1,5 +1,7 @@
 #include "Fixed.hpp"
 
+/*----Constructors-----*/
+
 Fixed::Fixed() : _fixedPointNumber(0)
 {
     std::cout << "Default constructor called" << std::endl;
@@ -33,6 +35,9 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
+/*----Constructors-----*/
+/*----Member Functions--*/
+
 int Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
@@ -53,6 +58,8 @@ int Fixed::toInt(void) const
 {
 	return _fixedPointNumber >> _fractionalBits;
 }
+
+/*----Member Functions--*/
 
 std::ostream &operator << (std::ostream &ostr, Fixed const &fixed)
 {

@@ -3,6 +3,7 @@
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include <iostream>
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
@@ -13,8 +14,10 @@ public:
     ~DiamondTrap();
 	DiamondTrap(std::string);
 	DiamondTrap(const DiamondTrap &copy);
-	DiamondTrap &operator=(const FragTrap &copy);
+	DiamondTrap &operator=(const DiamondTrap &copy);
 
+
+	void attack(const std::string &target);
 	void whoAmI();
 };
 
