@@ -13,7 +13,7 @@ int main()
         else
             an[i] = new Dog();
     }
-    for (size_t i = 0; i < 5; i++)
+    for (size_t i = 0; i < 10; i++)
     {
         delete an[i];
     }

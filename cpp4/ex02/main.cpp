@@ -5,24 +5,13 @@
 
 int main()
 {
-   //AAnimal ani = new AAnimal();
 
-   // Animal *aPtr = new Animal();
-    // aPtr->makeSound();
-
-    // aPtr = new Dog();
-    // aPtr->makeSound();
-
-    // aPtr = new Cat();
-    // aPtr->makeSound();
-
-    // std::cout << std::endl;
-
+    //AAnimal ani = new AAnimal();
     const AAnimal *j = new Dog();
     const AAnimal *i = new Cat();
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
+    i->makeSound();
     j->makeSound();
 
     delete j;

@@ -20,10 +20,10 @@ Cat::Cat(const Cat &copy)
 
 Cat& Cat::operator=(const Cat &copy)
 {
-    std::cout << "CopyAssigment_Constructor_Cat" << std::endl;
     if(this != &copy)
     {
         type = copy.type;
+        std::cout << "CopyAssigment_Constructor_Cat" << std::endl;
     }
     return *this;
 }
