@@ -5,6 +5,7 @@
 //conversion big numbers not working = integers
 // big number integer fail
 // char not working properly
+// = operator fix
 
 //orthodox
 
