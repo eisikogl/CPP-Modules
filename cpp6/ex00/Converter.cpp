@@ -3,7 +3,7 @@
 #include <sstream>
 
 //conversion big numbers not working = integers
- 
+// convert 0 wrong output
 
 //orthodox
 
@@ -77,7 +77,9 @@ void ScalarConverter::convert(const std::string str)
 bool ScalarConverter::isChar(std::string str)
 {
     if(str.size() != 1)
-        return false;
+		return false;
+	if(isdigit(str[0]))
+		return false;
     char c = str[0];
 	if(isprint(c) || !isdigit(c))
         return true;
@@ -187,6 +189,8 @@ void ScalarConverter::convertFromInt(std::string str)
 
         displayResult();
     }
+
+	
 }
 
 void ScalarConverter::convertFromFloat(std::string str)
