@@ -3,7 +3,8 @@
 #include <sstream>
 
 //conversion big numbers not working = integers
-// convert 0 wrong output
+// big number integer fail
+// char not working properly
 
 //orthodox
 
@@ -175,17 +176,17 @@ void ScalarConverter::convertFromChar(std::string str)
 void ScalarConverter::convertFromInt(std::string str)
 {
   	std::istringstream iss(str);
-    iss >> _intValue;
+    iss >> _tmpInt;
 
     if (iss.fail())
 	{
-        throw std::runtime_error("iss fail:Unable to convert.");
+        std::cout << "failint" << std::endl;
     }
 	else 
 	{
-        _charValue = static_cast<char>(_intValue);
-        _floatValue = static_cast<float>(_intValue);
-        _doubleValue = static_cast<double>(_intValue);
+        _charValue = static_cast<char>(_tmpInt);
+        _floatValue = static_cast<float>(_tmpInt);
+        _doubleValue = static_cast<double>(_tmpInt);
 
         displayResult();
     }
@@ -200,7 +201,7 @@ void ScalarConverter::convertFromFloat(std::string str)
 
     if (iss.fail()) 
 	{
-        throw std::runtime_error("iss fail:Unable to convert.");
+        std::cout << "failfloat" << std::endl;
     } 
 	else 
 	{
@@ -219,7 +220,7 @@ void ScalarConverter::convertFromDouble(std::string str)
 
     if (iss.fail()) 
 	{
-        throw std::runtime_error("iss fail:Unable to convert.");
+        std::cout << "faildoub" << std::endl;
     } 
 	else 
 	{

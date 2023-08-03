@@ -14,6 +14,7 @@ class ScalarConverter
         int _intValue;
         float _floatValue;
         double _doubleValue;
+        long long int _tmpInt;
         int precisionCount;
 
         bool isChar(std::string str);
