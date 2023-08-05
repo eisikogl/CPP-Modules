@@ -6,16 +6,22 @@
 // big number integer fail
 // char not working properly
 // = operator fix
+// fixed static class
+// integers not working properly - convertfromint
 
 //orthodox
 
+	char ScalarConverter::_charValue = 0;
+	int ScalarConverter::_intValue = 0;
+	float ScalarConverter::_floatValue = 0.0f;
+	double ScalarConverter::_doubleValue = 0.0;
+	int ScalarConverter::precisionCount = 0;
+	long long int ScalarConverter::_tmpInt = 0;
+	std::string ScalarConverter::input;
+
 ScalarConverter::ScalarConverter()
 {
-	_charValue = '\0';
-	_intValue = 0;
-	_floatValue = 0.0f;
-	_doubleValue = 0.0;
-	precisionCount = 0;
+
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &copy)
@@ -38,31 +44,30 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::convert(const std::string str)
 {
-	ScalarConverter converter;
-    converter.input = str;
-	if (converter.isChar(converter.input))
-		converter.convertFromChar(converter.input);
-	else if (converter.isInt(converter.input))
-		converter.convertFromInt(converter.input);
-	else if (converter.isFloat(converter.input))
-		converter.convertFromFloat(converter.input);
-	else if (converter.isDouble(converter.input))
-		converter.convertFromDouble(converter.input);
-    else if (converter.isImpossible(converter.input))
+    input = str;
+	if (ScalarConverter::isChar(input))
+		ScalarConverter::convertFromChar(input);
+	else if (ScalarConverter::isInt(input))
+		ScalarConverter::convertFromInt(input);
+	else if (ScalarConverter::isFloat(input))
+		ScalarConverter::convertFromFloat(input);
+	else if (ScalarConverter::isDouble(input))
+		ScalarConverter::convertFromDouble(input);
+    else if (ScalarConverter::isImpossible(input))
 	{
-		if (!converter.input.compare("nan") || !converter.input.compare("+inf") || !converter.input.compare("-inf"))
+		if (!input.compare("nan") || !input.compare("+inf") || !input.compare("-inf"))
 		{
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: " << converter.input << "f" << std::endl;
-			std::cout << "double: " << converter.input << std::endl;
+			std::cout << "float: " << input << "f" << std::endl;
+			std::cout << "double: " << input << std::endl;
 		}
 		else
 		{
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: " << converter.input << std::endl;
-			std::cout << "double: " << converter.input << std::endl;
+			std::cout << "float: " << input << std::endl;
+			std::cout << "double: " << input << std::endl;
 		}
     }
 	else
@@ -84,7 +89,10 @@ bool ScalarConverter::isChar(std::string str)
 		return false;
     char c = str[0];
 	if(isprint(c) || !isdigit(c))
+	{
+		std::cout << "im called: is char" << std::endl;
         return true;
+	}
     else
         return false;
 }
@@ -100,6 +108,7 @@ bool ScalarConverter::isInt(std::string str)
 		if (!isdigit(str[i]))
 			return (false);
 	}
+	std::cout << "im called: is Int" << std::endl;
 	return (true);
 }
 
@@ -177,7 +186,7 @@ void ScalarConverter::convertFromChar(std::string str)
 void ScalarConverter::convertFromInt(std::string str)
 {
   	std::istringstream iss(str);
-    iss >> _tmpInt;
+    iss >> _intValue;
 
     if (iss.fail())
 	{
@@ -185,9 +194,9 @@ void ScalarConverter::convertFromInt(std::string str)
     }
 	else 
 	{
-        _charValue = static_cast<char>(_tmpInt);
-        _floatValue = static_cast<float>(_tmpInt);
-        _doubleValue = static_cast<double>(_tmpInt);
+        _charValue = static_cast<char>(_intValue);
+        _floatValue = static_cast<float>(_intValue);
+        _doubleValue = static_cast<double>(_intValue);
 
         displayResult();
     }
