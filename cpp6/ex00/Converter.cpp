@@ -2,21 +2,20 @@
 #include <climits>
 #include <sstream>
 
-//conversion big numbers not working = integers
-// big number integer fail
 // char not working properly
 // = operator fix
 // fixed static class
 // integers not working properly - convertfromint
+// char calling int not working
 
 //orthodox
 
 	char ScalarConverter::_charValue = 0;
-	int ScalarConverter::_intValue = 0;
+	//int ScalarConverter::_intValue = 0;
 	float ScalarConverter::_floatValue = 0.0f;
 	double ScalarConverter::_doubleValue = 0.0;
 	int ScalarConverter::precisionCount = 0;
-	long long int ScalarConverter::_tmpInt = 0;
+	double ScalarConverter::_tmpInt = 0;
 	std::string ScalarConverter::input;
 
 ScalarConverter::ScalarConverter()
@@ -176,7 +175,7 @@ bool ScalarConverter::isImpossible(std::string str)
 void ScalarConverter::convertFromChar(std::string str)
 {
 	_charValue = str[0];
-	_intValue = static_cast<int>(_charValue);
+	_tmpInt = static_cast<int>(_charValue);
 	_floatValue = static_cast<float>(_charValue);
 	_doubleValue = static_cast<double>(_charValue);
 
@@ -186,17 +185,18 @@ void ScalarConverter::convertFromChar(std::string str)
 void ScalarConverter::convertFromInt(std::string str)
 {
   	std::istringstream iss(str);
-    iss >> _intValue;
+    iss >> _tmpInt;
 
     if (iss.fail())
 	{
-        std::cout << "failint" << std::endl;
+        displayResult();
+		
     }
 	else 
 	{
-        _charValue = static_cast<char>(_intValue);
-        _floatValue = static_cast<float>(_intValue);
-        _doubleValue = static_cast<double>(_intValue);
+        _charValue = static_cast<char>(_tmpInt);
+        _floatValue = static_cast<float>(_tmpInt);
+        _doubleValue = static_cast<double>(_tmpInt);
 
         displayResult();
     }
@@ -216,7 +216,7 @@ void ScalarConverter::convertFromFloat(std::string str)
 	else 
 	{
         _charValue = static_cast<char>(_floatValue);
-        _intValue = static_cast<int>(_floatValue);
+        _tmpInt = static_cast<int>(_floatValue);
         _doubleValue = static_cast<double>(_floatValue);
 
         displayResult();
@@ -235,7 +235,7 @@ void ScalarConverter::convertFromDouble(std::string str)
 	else 
 	{
         _charValue = static_cast<char>(_doubleValue);
-        _intValue = static_cast<int>(_doubleValue);
+        _tmpInt = static_cast<int>(_doubleValue);
         _floatValue = static_cast<float>(_doubleValue);
 
         displayResult();
@@ -264,7 +264,7 @@ void ScalarConverter::displayResult()
 		if (_floatValue < INT_MIN || _doubleValue < INT_MIN ||  _floatValue > INT_MAX ||  _doubleValue > INT_MAX)
 			std::cerr << "impossible" << std::endl;
 		else
-			std::cout << _intValue << std::endl;
+			std::cout << _tmpInt << std::endl;
 	}
 	catch(const std::exception &e)
 	{

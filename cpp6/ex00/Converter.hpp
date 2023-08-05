@@ -11,10 +11,10 @@ class ScalarConverter
         static std::string input;
 
         static char _charValue;
-        static int _intValue;
+      //  static int _intValue;
         static float _floatValue;
         static double _doubleValue;
-        static long long int _tmpInt;
+        static double _tmpInt;
         static int precisionCount;
 
         static bool isChar(std::string str);
