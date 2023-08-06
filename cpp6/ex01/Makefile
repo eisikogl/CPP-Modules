@@ -1,10 +1,11 @@
-SRCS	= main.cpp
+SRCS	= main.cpp \
+		  Serializer.cpp
 OBJS	= $(SRCS:%.cpp=%.o)
 
-NAME	= SerDes
+NAME	= Serializer
 CC		= c++
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror
 
 all: $(NAME)
 
