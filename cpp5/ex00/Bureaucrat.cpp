@@ -4,16 +4,20 @@ Bureaucrat::Bureaucrat()
 {
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade)
 {
-	*this = copy;
 }
+
 
 Bureaucrat &Bureaucrat::operator = (const Bureaucrat &assign)
 {
-    (void)assign;
-	return *this;
+    if (this != &assign)
+    {
+        grade = assign.grade;
+    }
+    return *this;
 }
+
 
 Bureaucrat::~Bureaucrat()
 {
