@@ -11,13 +11,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.gra
 
 Bureaucrat &Bureaucrat::operator = (const Bureaucrat &assign)
 {
-    if (this != &assign)
-    {
-        grade = assign.grade;
-    }
-    return *this;
+    (void)assign;
+	return *this;
 }
-
 
 Bureaucrat::~Bureaucrat()
 {
