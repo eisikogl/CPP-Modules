@@ -9,11 +9,14 @@ int main()
     try
     {
         Bureaucrat bureaucrat("Casper", 1);
+        Bureaucrat bur("BOB", 138);
         ShrubberyCreationForm shrubberyCreationForm("Shrubbery");
         RobotomyRequestForm robotomyRequestForm("Robotomy");
         PresidentialPardonForm presidentialPardonForm("President");
 
         std::cout << "\n--------------- Form 1 (Shrubbery) ---------------" << std::endl;
+        bur.signForm(shrubberyCreationForm);
+        bur.executeForm(shrubberyCreationForm);
         bureaucrat.signForm(shrubberyCreationForm);
         bureaucrat.executeForm(shrubberyCreationForm);
         std::cout << "\n--------------- Form 2 (Robotomy)  ---------------" << std::endl;
