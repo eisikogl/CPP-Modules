@@ -1,6 +1,7 @@
 #include "Serializer.hpp"
 
-int main() {
+int main() 
+{
     Data data = {10, 20.5f};
     Data* ptr = &data;
 
