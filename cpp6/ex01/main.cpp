@@ -1,20 +1,31 @@
 #include "Serializer.hpp"
 
-int main() 
+int main()
 {
-    Data data = {10, 20.5f};
-    Data* ptr = &data;
+    Data originalData;
+    originalData.a = 42;
+    originalData.b = 3.14f;
+    uintptr_t serializedPtr;
+    Data* deserializedPtr;
 
-    uintptr_t raw = Serializer::serialize(ptr);
-    Data* deserialized = Serializer::deserialize(raw);
+    std::cout << "Created Data object at address: " << &originalData << std::endl;
 
-    if (ptr == deserialized) 
+    serializedPtr = Serializer::serialize(&originalData);
+
+    std::cout << "Serialized Data pointer value: " << serializedPtr << std::endl;
+
+    deserializedPtr = Serializer::deserialize(serializedPtr);
+
+    std::cout << "Deserialized Data pointer at address: " << deserializedPtr << std::endl;
+
+    if (deserializedPtr == &originalData)
     {
-        std::cout << "Serialization and deserialization successful!" << std::endl;
-    } 
-    else 
+        std::cout << "Deserialization successful. Pointers match." << std::endl;
+        std::cout << "Original Data: a = " << originalData.a << ", b = " << originalData.b << std::endl;
+    }
+    else
     {
-        std::cout << "Something went wrong!" << std::endl;
+        std::cout << "Deserialization failed. Pointers do not match." << std::endl;
     }
 
     return 0;

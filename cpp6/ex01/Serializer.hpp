@@ -4,7 +4,8 @@
 #include <cstdint>
 #include <iostream>
 
-struct Data {
+struct Data 
+{
     int a;
     float b;
 };
