@@ -1,11 +1,10 @@
 #include "Base.hpp"
 #include <iostream>
 
-int main() {
-    srand(time(0)); // Seed for randomness
-
+int main() 
+{
     Base* obj = generate();
-    identify(obj);
+    //identify(obj);
     identify(*obj);
 
     delete obj;
