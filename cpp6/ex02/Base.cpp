@@ -1,12 +1,10 @@
 #include "Base.hpp"
 #include <iostream>
 #include <cstdlib>
-#include <typeinfo>
 
 
 Base* generate(void)
 {
-    srand(time(NULL));
     int random = rand() % 3;
     switch (random) 
     {
@@ -17,8 +15,9 @@ Base* generate(void)
     return nullptr;
 }
 
-void identify(Base* p) 
+void identify(Base *p) 
 {
+    std::cout << "Im a Pointer to derived class my type is: " << std::endl;
     if (dynamic_cast<A*>(p))
         std::cout << "A" << std::endl;
     else if (dynamic_cast<B*>(p))
@@ -27,8 +26,9 @@ void identify(Base* p)
         std::cout << "C" << std::endl;
 }
 
-void identify(Base& p) 
+void identify(Base &p) 
 {
+    std::cout << "Im referenced to derived class my type is: " << std::endl;
     try 
     {
         (void)dynamic_cast<A&>(p);
