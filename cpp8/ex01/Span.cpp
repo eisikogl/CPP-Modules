@@ -40,3 +40,10 @@ void Span::shortestSpan()
         throw std::runtime_error("Too few Numbers in the Container to use this operation");
     
 }
+
+void Span::longestSpan()
+{
+    if(max_value <= 1)
+        throw std::runtime_error("Too few Numbers in the Container to use this operation");
+    
+}
