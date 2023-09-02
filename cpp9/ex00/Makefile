@@ -1,11 +1,12 @@
-SRCS	= main.cpp
+SRCS	= main.cpp \
+		BitcoinExchange.cpp
 
 OBJS	= $(SRCS:%.cpp=%.o)
 
-NAME	= array
+NAME	= btc
 CC		= c++
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

@@ -1,5 +1,5 @@
-#ifndef ARRAY_HPP
-#define ARRAY_HPP
+#pragma once
+#include <exception>
 
 template <typename T>
 class Array
@@ -20,5 +20,3 @@ class Array
 };
 
 #include "Array.tpp"
-
-#endif

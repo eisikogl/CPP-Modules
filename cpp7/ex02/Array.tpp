@@ -7,12 +7,11 @@ Array<T>::Array()
     _data = NULL;
 }
 
+
 template <typename T>
-Array<T>::Array(const Array &copy)
+Array<T>::Array(const Array &copy) : _size(copy._size), _data(new T[_size])
 {
-    _size = copy._size;
-    _data = new T[_size];
-    for(unsigned int i = 0;i < _size; i++)
+    for(unsigned int i = 0; i < _size; i++)
         _data[i] = copy._data[i];
 }
 
@@ -22,11 +21,12 @@ Array<T> &Array<T>::operator =(const Array &copy)
     if(this != &copy)
     {
         delete[] _data;
-        _size = copy.size;
+        _size = copy._size;
         _data = new T[_size]();
         for (unsigned int i = 0;i < _size;i++)
-            _data[i] = copy.data[i];
+            _data[i] = copy._data[i];
     }
+    return *this;
 }
 
 template <typename T>
