@@ -3,9 +3,15 @@
 
 #include <iostream>
 
-template (typename T)
-T easyfind(T a, int b){
-
+template <typename T>
+int easyfind(T &container, int value)
+{
+    for(size_t i = 0; i < container.size();i++)
+    {
+        if(container[i] == value)
+            return i;
+    }
+    throw std::runtime_error("Value not found in Container");
 }
 
 #endif

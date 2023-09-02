@@ -89,7 +89,7 @@ bool ScalarConverter::isChar(std::string str)
     char c = str[0];
 	if(isprint(c) || !isdigit(c))
 	{
-		std::cout << "im called: is char" << std::endl;
+		//std::cout << "im called: is char" << std::endl;
         return true;
 	}
     else
@@ -107,7 +107,7 @@ bool ScalarConverter::isInt(std::string str)
 		if (!isdigit(str[i]))
 			return (false);
 	}
-	std::cout << "im called: is Int" << std::endl;
+	//std::cout << "im called: is Int" << std::endl;
 	return (true);
 }
 

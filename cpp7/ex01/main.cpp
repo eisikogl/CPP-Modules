@@ -4,11 +4,13 @@
 #include <string>
 
 // Sample functions to be used with iter
-void printInt(int const &num) {
+void printInt(int const &num)
+{
     std::cout << num << " ";
 }
 
-void printString(std::string const &str) {
+void printString(std::string const &str)
+{
     std::cout << str << " ";
 }
 

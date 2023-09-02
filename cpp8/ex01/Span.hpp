@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <algorithm>
 
 class Span
 {
@@ -14,7 +15,7 @@ public:
     Span &operator = (const Span &assign);
 
     void addNumber(int value);
-    void shortestSpan();
-    void longestSpan();
+    int shortestSpan();
+    int longestSpan();
 };
 
