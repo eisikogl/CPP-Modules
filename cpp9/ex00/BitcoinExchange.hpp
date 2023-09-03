@@ -1,20 +1,26 @@
+// BitcoinExchange.hpp
+
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
+
+#include <iostream>
 #include <map>
 #include <vector>
 #include <string>
+#include <fstream>
 
 class BitcoinExchange {
 private:
-    std::map<std::string, float> btcPrices;  // To store the bitcoin prices from the CSV database
+    std::map<std::string, float> btcDatabase;
 
 public:
-    BitcoinExchange(const std::string& csvFilename);  // Constructor to initialize the database
+    BitcoinExchange();
+    ~BitcoinExchange();
+    BitcoinExchange(const BitcoinExchange& other);
+    BitcoinExchange& operator=(const BitcoinExchange& other);
 
-    // Method to read the CSV database
-    void readCSV(const std::string& filename);
-
-    // Method to calculate the bitcoin value for a given date and amount
-    float calculateValue(const std::string& date, float amount);
-
-    // Method to process the input file and print the results
-    void processInput(const std::string& inputFilename);
+    void loadBTCDatabase(const std::string& filename);
+    void processInputFile(const std::string& filename);
 };
+
+#endif
