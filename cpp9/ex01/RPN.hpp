@@ -10,7 +10,10 @@ private:
 public:
     RPN();
     ~RPN();
+    RPN(const RPN &copy);
+    RPN &operator=(const RPN &copy);
 
     void polish(const std::string &str);
-
 };
+
+bool checkinput(const std::string &str);
