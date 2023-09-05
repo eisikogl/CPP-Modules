@@ -5,7 +5,7 @@ OBJS	= $(SRCS:%.cpp=%.o)
 NAME	= whatever
 CC		= c++
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

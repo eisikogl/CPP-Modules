@@ -6,11 +6,10 @@
 template <typename T>
 int easyfind(T &container, int value)
 {
-    for(size_t i = 0; i < container.size();i++)
-    {
-        if(container[i] == value)
-            return i;
-    }
+   typename T::iterator it = std::find(container.begin(), container.end(), value);
+   if(it != container.end())
+        return std::distance(container.begin(),it);
+
     throw std::runtime_error("Value not found in Container");
 }
 

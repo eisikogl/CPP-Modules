@@ -48,6 +48,9 @@
         "limits": "cpp",
         "numbers": "cpp",
         "typeinfo": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "climits": "cpp",
+        "bitset": "cpp",
+        "regex": "cpp"
     }
 }

@@ -9,7 +9,7 @@ Array<T>::Array()
 
 
 template <typename T>
-Array<T>::Array(const Array &copy) : _size(copy._size), _data(new T[_size])
+Array<T>::Array(const Array &copy) : _data(new T[copy._size]), _size(copy._size)
 {
     for(unsigned int i = 0; i < _size; i++)
         _data[i] = copy._data[i];

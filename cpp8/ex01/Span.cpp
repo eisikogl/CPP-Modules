@@ -1,5 +1,7 @@
 #include "Span.hpp"
-#include <limits>
+#include <vector>
+#include <algorithm>
+#include <numeric>
 
 Span::Span(unsigned int max) : max_value(max)
 {
@@ -11,7 +13,7 @@ Span::~Span()
 
 }
 
-Span::Span(const Span &copy) : max_value(copy.max_value)
+Span::Span(const Span &copy) : max_value(copy.max_value) , data(copy.data)
 {
 
 }
@@ -20,6 +22,11 @@ Span &Span::operator = (const Span &assign)
 {
 	if(this != &assign)
     {
+        if(!data.empty())
+        {
+             for(unsigned int i = 0; i < data.size(); i++)
+                data[i] = assign.data[i];
+        }
         max_value = assign.max_value;
     }
     return *this;
@@ -37,34 +44,24 @@ void Span::addNumber(int value)
 
 int Span::shortestSpan()
 {
-    if(max_value <= 1)
+    if(data.size() <= 1)
         throw std::runtime_error("Too few Numbers in the Container to use this operation");
-   // std::vector<int>::iterator findSpan = data.begin();
 
-    int shortestSpan = std::numeric_limits<int>::max();
-    int Span;
-    for (size_t i = 0; i < data.size() - 1;++i)
-    {
-        for (size_t j = i + 1; j < data.size();++j)
-        {
-            if(data[i] > data[j])
-                Span = data[i] - data[j];
-            else
-                Span = data[j] - data[i];
-            shortestSpan = std::min(Span,shortestSpan);
-        }
-    }
-    return shortestSpan;
+    std::sort(data.begin(), data.end());
+    std::vector<int> differences(data.size() - 1);
+    std::adjacent_difference(data.begin(), data.end(), differences.begin());
+
+    return *std::min_element(differences.begin() + 1, differences.end());
 }
 
 int Span::longestSpan()
 {
     if(max_value <= 1)
         throw std::runtime_error("Too few Numbers in the Container to use this operation");
-    std::vector<int>::iterator min = std::min_element(data.begin(), data.end());
-    std::vector<int>::iterator max = std::max_element(data.begin(), data.end());
-    int minValue = *min;
-    int maxValue = *max;
+    int minValue;
+    int maxValue;
+    minValue = *std::min_element(data.begin(), data.end());
+    maxValue = *std::max_element(data.begin(), data.end());
 
     return maxValue - minValue;
 }

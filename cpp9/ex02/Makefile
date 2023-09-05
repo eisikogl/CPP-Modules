@@ -1,8 +1,9 @@
 SRCS	= main.cpp \
+			PmergeMe.cpp
 
 OBJS	= $(SRCS:%.cpp=%.o)
 
-NAME	= iter
+NAME	= PmergeMe
 CC		= c++
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
