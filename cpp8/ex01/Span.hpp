@@ -9,12 +9,14 @@ private:
     std::vector<int> data;
     unsigned int max_value;
 public:
-    Span(unsigned int max);
+    Span();
     ~Span();
+    Span(unsigned int max);
     Span(const Span &copy);
     Span &operator = (const Span &assign);
 
     void addNumber(int value);
+    void addNumber(const std::vector<int>& values);
     int shortestSpan();
     int longestSpan();
 };

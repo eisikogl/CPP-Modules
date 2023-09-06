@@ -3,30 +3,19 @@
 #include <algorithm>
 #include <numeric>
 
-Span::Span(unsigned int max) : max_value(max)
-{
+Span::Span() : max_value(0){}
 
-}
+Span::Span(unsigned int max) : max_value(max){}
 
-Span::~Span()
-{
+Span::~Span(){}
 
-}
-
-Span::Span(const Span &copy) : max_value(copy.max_value) , data(copy.data)
-{
-
-}
+Span::Span(const Span &copy) : data(copy.data), max_value(copy.max_value) {}
 
 Span &Span::operator = (const Span &assign)
 {
 	if(this != &assign)
     {
-        if(!data.empty())
-        {
-             for(unsigned int i = 0; i < data.size(); i++)
-                data[i] = assign.data[i];
-        }
+        data = assign.data;
         max_value = assign.max_value;
     }
     return *this;
@@ -39,8 +28,22 @@ void Span::addNumber(int value)
         throw std::runtime_error("Cant hold more Integers, im full");
     }
     data.push_back(value);
-    std::cout << "Added new Value: " << value << std::endl; 
+    //std::cout << "Added new Value: " << value << std::endl; 
 }
+
+void Span::addNumber(const std::vector<int>& values)
+{
+    if(data.size() + values.size() > max_value)
+    {
+        throw std::runtime_error("Can't hold more integers, I'm full");
+    }
+    for(size_t i = 0; i < values.size(); ++i)
+    {
+        data.push_back(values[i]);
+      //  std::cout << "Added new Value: " << values[i] << std::endl;
+    }
+}
+
 
 int Span::shortestSpan()
 {

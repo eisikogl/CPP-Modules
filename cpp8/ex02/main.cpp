@@ -19,9 +19,11 @@ int main()
     --it;
     while (it != ite)
     {
-    std::cout << *it << std::endl;
-    ++it;
+      std::cout << *it << std::endl;
+      ++it;
     }
+    std::cout<< "copy class stack to stack using stacks copyconstructor" << std::endl;
     std::stack<int> s(mstack);
+
     return 0;
 }
