@@ -1,22 +1,35 @@
-#include "PmergeMe.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <sys/time.h>
+#include "PmergeMe.hpp"
 
-//Take arguments, parse arguments,store parsed arguments as integers,sort arguments, keep sorting time
-int main(int argc, char *argv[])
-{
-    if(argc < 2)
-    {
-        std::cout << "Invalid Argument count" << std::endl;
-        return 0;
-    }
-    std::deque<int> input;
+int main(int argc, char* argv[]) {
+    std::list<int> dataList;
+    std::deque<int> dataDeque;
 
-    for(int i = 1;i < argc;i++)
-    {
-        int value = std::atoi(argv[i]);
-        input.push_back(value);
+    for (int i = 1; i < argc; ++i) {
+        int value = atoi(argv[i]);
+        dataList.push_back(value);
+        dataDeque.push_back(value);
     }
-    
-    PmergeMe arguments(*argv);
+
+    PmergeMe sorter(dataList, dataDeque);
+
+
+    struct timeval startList, endList;
+    gettimeofday(&startList, NULL);
+    sorter.sortUsingList();
+    gettimeofday(&endList, NULL);
+    double durationList = (endList.tv_sec - startList.tv_sec) + (endList.tv_usec - startList.tv_usec) * 1e-6;
+
+    struct timeval startDeque, endDeque;
+    gettimeofday(&startDeque, NULL);
+    sorter.sortUsingDeque();
+    gettimeofday(&endDeque, NULL);
+    double durationDeque = (endDeque.tv_sec - startDeque.tv_sec) + (endDeque.tv_usec - startDeque.tv_usec) * 1e-6;
+
+    std::cout << "Time taken using list: " << durationList << " seconds" << std::endl;
+    std::cout << "Time taken using deque: " << durationDeque << " seconds" << std::endl;
+
+    return 0;
 }

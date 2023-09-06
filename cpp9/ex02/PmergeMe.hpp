@@ -1,23 +1,25 @@
-#pragma once
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
+
+#include <iostream>
 #include <list>
 #include <deque>
 
-class PmergeMe
-{
-private:
-    std::list<int> myListcont;
-    std::deque<int> myDequecont;
-
-    void FordJohnsonSortDeque();
-    void FordJohnsonSortList();
+class PmergeMe {
 public:
-    PmergeMe();
+    PmergeMe(const std::list<int>& dataList, const std::deque<int>& dataDeque);
     ~PmergeMe();
 
-    void sort();                          // Main function to sort using Ford-Johnson algorithm
-    std::deque<int> getSortedDeque() const; // Returns the sorted sequence from deque
-    std::list<int> getSortedList() const;   // Returns the sorted sequence from list
+    void sortUsingList();
+    void sortUsingDeque();
 
-    double getTimeDeque() const;           // Returns the time taken for sorting using deque
-    double getTimeList() const;            // Returns the time taken for sorting using list
+    std::list<int> getListData() const;
+    std::deque<int> getDequeData() const;
+
+private:
+    std::list<int> dataList_;
+    std::deque<int> dataDeque_;
+
 };
+
+#endif
