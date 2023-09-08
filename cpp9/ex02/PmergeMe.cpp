@@ -7,6 +7,17 @@ PmergeMe::PmergeMe(){}
 
 PmergeMe::~PmergeMe() {}
 
+PmergeMe::PmergeMe(const PmergeMe &copy):dataDeque_(copy.dataDeque_),dataList_(copy.dataList_){}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe &copy)
+{
+    if(this != &copy)
+    {
+        dataDeque_ = copy.dataDeque_;
+        dataList_ = copy.dataList_;
+    }
+}
+
 void PmergeMe::sortUsingList() 
 {
     if (dataList_.empty()) return;

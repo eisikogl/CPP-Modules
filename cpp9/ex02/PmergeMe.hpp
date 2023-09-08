@@ -12,7 +12,8 @@ private:
 public:
     PmergeMe();
     ~PmergeMe();
-    //PmergeMe(const PmergeMe &copy);
+    PmergeMe(const PmergeMe &copy);
+    PmergeMe &operator=(const PmergeMe &copy);
 
     void sortUsingList();
     void sortUsingDeque();

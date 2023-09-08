@@ -2,6 +2,13 @@
 #include <sys/time.h>
 #include "PmergeMe.hpp"
 
+// #include <ctime>
+// std::clock_t start = std::clock();
+// operation
+// std::clock_t end = std::clock();
+// double elapsed = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+// return elapsed;
+
 int main(int argc, char* argv[]) 
 {
     PmergeMe sorter;
@@ -27,6 +34,7 @@ int main(int argc, char* argv[])
     long durationDequeMicros = (endDeque.tv_sec - startDeque.tv_sec) * 1e6 + (endDeque.tv_usec - startDeque.tv_usec);
     std::cout << "After: ";
     sorter.printdataDeque();
+    
     //sorter.printdataList();
     std::cout << "Time to process a range of " << sorter.listsize() << " elements with std::list : " << durationListMicros << " microseconds" << std::endl;
     std::cout << "Time to process a range of " << sorter.listsize() << " elements with std::deque : " << durationDequeMicros << " microseconds" << std::endl;
