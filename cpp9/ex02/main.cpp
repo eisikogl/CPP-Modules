@@ -1,19 +1,21 @@
 #include <iostream>
-#include <cstdlib>
 #include <sys/time.h>
 #include "PmergeMe.hpp"
 
 int main(int argc, char* argv[]) 
 {
-    std::list<int> dataList;
-    std::deque<int> dataDeque;    
-    for (int i = 1; i < argc; ++i) 
+    PmergeMe sorter;
+    try
     {
-        int value = atoi(argv[i]);
-        dataList.push_back(value);
-        dataDeque.push_back(value);
-    }   
-    PmergeMe sorter(dataList, dataDeque);    
+        sorter.parser(argc,argv);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Error" << std::endl;
+        return 1;
+    }
+    std::cout << "Before: "; 
+    sorter.printdataDeque();
     struct timeval startList, endList, startDeque, endDeque;
     gettimeofday(&startList, NULL);
     sorter.sortUsingList();
@@ -23,6 +25,9 @@ int main(int argc, char* argv[])
     sorter.sortUsingDeque();
     gettimeofday(&endDeque, NULL);
     long durationDequeMicros = (endDeque.tv_sec - startDeque.tv_sec) * 1e6 + (endDeque.tv_usec - startDeque.tv_usec);
-    std::cout << "Time taken using list: " << durationListMicros << " microseconds" << std::endl;
-    std::cout << "Time taken using deque: " << durationDequeMicros << " microseconds" << std::endl;    return 0;
+    std::cout << "After: ";
+    sorter.printdataDeque();
+    //sorter.printdataList();
+    std::cout << "Time to process a range of " << sorter.listsize() << " elements with std::list : " << durationListMicros << " microseconds" << std::endl;
+    std::cout << "Time to process a range of " << sorter.listsize() << " elements with std::deque : " << durationDequeMicros << " microseconds" << std::endl;
 }

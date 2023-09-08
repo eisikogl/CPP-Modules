@@ -6,19 +6,24 @@
 #include <deque>
 
 class PmergeMe {
+private:
+    std::list<int> dataList_;
+    std::deque<int> dataDeque_;
 public:
-    PmergeMe(const std::list<int>& dataList, const std::deque<int>& dataDeque);
+    PmergeMe();
     ~PmergeMe();
+    //PmergeMe(const PmergeMe &copy);
 
     void sortUsingList();
     void sortUsingDeque();
 
+    int listsize();
+    int dequesize();
     std::list<int> getListData() const;
     std::deque<int> getDequeData() const;
-
-private:
-    std::list<int> dataList_;
-    std::deque<int> dataDeque_;
+    void printdataList();
+    void printdataDeque();
+    void parser(int arg,char *argv[]);
 
 };
 

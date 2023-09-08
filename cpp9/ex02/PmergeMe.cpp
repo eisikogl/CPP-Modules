@@ -1,14 +1,11 @@
 #include "PmergeMe.hpp"
+#include <cstdlib>
+#include <exception>
+#include <climits>
 
-PmergeMe::PmergeMe(const std::list<int>& dataList, const std::deque<int>& dataDeque)
-    : dataList_(dataList), dataDeque_(dataDeque) 
-{
-}
+PmergeMe::PmergeMe(){}
 
-PmergeMe::~PmergeMe() 
-{
-
-}
+PmergeMe::~PmergeMe() {}
 
 void PmergeMe::sortUsingList() 
 {
@@ -90,4 +87,66 @@ std::list<int> PmergeMe::getListData() const
 std::deque<int> PmergeMe::getDequeData() const 
 {
     return dataDeque_;
+}
+
+int PmergeMe::listsize()
+{
+    return dataList_.size();
+}
+
+int PmergeMe::dequesize()
+{
+    return dataDeque_.size();
+}
+
+void PmergeMe::printdataDeque()
+{
+    if(!dataDeque_.empty())
+    {
+        std::deque<int>::iterator it;
+        for(it = dataDeque_.begin();it != dataDeque_.end();it++)
+        {
+            std::cout << *it << " ";
+        }
+        std::cout << std::endl;
+    }
+    else
+    {
+        std::cout << "empty container" << std::endl;
+    }
+}
+
+void PmergeMe::printdataList()
+{
+    if(!dataList_.empty())
+    {
+        std::list<int>::iterator it = dataList_.begin();
+        for(;it != dataList_.end();it++)
+        {
+            std::cout << *it << " ";
+        }
+        std::cout << std::endl;
+    }
+    else
+    {
+        std::cout << "empty container" << std::endl;
+    }
+}
+
+void PmergeMe::parser(int argc,char *argv[])
+{
+    if(argc < 2)
+        throw std::exception();
+    for (int i = 1; i < argc; ++i) 
+    {
+        char* endptr;
+        long value = strtol(argv[i], &endptr, 10);
+
+        if (*endptr != '\0' || value < 0 || value > INT_MAX)
+            throw std::exception();
+
+        dataList_.push_back(static_cast<int>(value));
+        dataDeque_.push_back(static_cast<int>(value));
+    }
+
 }
