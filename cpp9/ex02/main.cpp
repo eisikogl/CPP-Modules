@@ -34,6 +34,7 @@ int main(int argc, char* argv[])
     long durationDequeMicros = (endDeque.tv_sec - startDeque.tv_sec) * 1e6 + (endDeque.tv_usec - startDeque.tv_usec);
     std::cout << "After: ";
     sorter.printdataDeque();
+    sorter.printdataList();
     
     //sorter.printdataList();
     std::cout << "Time to process a range of " << sorter.listsize() << " elements with std::list : " << durationListMicros << " microseconds" << std::endl;

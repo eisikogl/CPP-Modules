@@ -28,4 +28,7 @@ public:
 
 };
 
+void merge_sort(std::deque<int>& arr);
+void merge_sort(std::list<int>& arr);
+
 #endif
