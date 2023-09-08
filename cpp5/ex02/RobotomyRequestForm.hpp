@@ -2,6 +2,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <sys/time.h>
 
 class RobotomyRequestForm: public AForm
 {

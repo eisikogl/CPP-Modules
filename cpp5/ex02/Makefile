@@ -9,7 +9,7 @@ OBJS	= $(SRCS:%.cpp=%.o)
 NAME	= OtherForms
 CC		= c++
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror 
 
 all: $(NAME)
 

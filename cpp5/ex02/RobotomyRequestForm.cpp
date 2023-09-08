@@ -33,7 +33,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
     if (executor.getGrade() > this->getGradeToExecute())
         throw AForm::GradeTooLowException();
     srand(time(NULL));
-    if (std::rand() % 2 + 0 == 0)
+    if (rand() % 2 + 0 == 0)
         std::cout << "* some drilling noises * " << _target << " has been robotomized!" << std::endl;
     else
         std::cout << "Robotomy failed! " << _target << " is still alive." << std::endl;
